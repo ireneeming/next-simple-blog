@@ -14,6 +14,10 @@ yarn create next-app [app-name]
 yarn dev
 ```
 
+### [vercel 배포 사이트 구경해보기] (https://next-simple-blog-ptgienz6z-mings-projects-ae35b61c.vercel.app/)
+
+
+
 ### Yarn berry Next.js issues solution
 
 1. [프로젝트 git repo 푸쉬 안됨 이슈](https://velog.io/@ireneeming/Next.js-Yarn-berry-git-안올라감-이슈)
