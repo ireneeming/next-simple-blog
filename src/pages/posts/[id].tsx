@@ -11,7 +11,7 @@ export async function getStaticPaths() {
  };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: any }) {
  const postData = await getPostData(params.id); // 실제 데이터 가져옴
  return {
   props: {
@@ -20,9 +20,9 @@ export async function getStaticProps({ params }) {
  };
 }
 
-export default function Post({ postData }) {
+export default function Post({ postData }: { postData: any }) {
  return (
-  <Layout>
+  <Layout home={false}>
    <Head>
     <title>{postData.title}</title>
    </Head>

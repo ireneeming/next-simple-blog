@@ -7,18 +7,18 @@ import getConfig from "next/config";
 import Layout from "../../components/Layout";
 
 export default function Write() {
- const idRef = useRef(undefined);
- const titleRef = useRef(undefined);
- const contentRef = useRef(undefined);
+ const idRef = useRef<HTMLInputElement>(null);
+ const titleRef = useRef<HTMLInputElement>(null);
+ const contentRef = useRef<HTMLTextAreaElement>(null);
 
  const [showLink, setShowLink] = useState(false);
 
- const handleSumbit = (event) => {
+ const handleSumbit = (event: React.ChangeEvent<HTMLFormElement>) => {
   event.preventDefault();
 
-  const id = idRef.current.value;
-  const title = titleRef.current.value;
-  const content = contentRef.current.value;
+  const id = idRef.current?.value;
+  const title = titleRef.current?.value;
+  const content = contentRef.current?.value;
 
   if (id && title && content) {
    fetch("/api/post/write", {
@@ -44,7 +44,7 @@ export default function Write() {
   }
  };
  return (
-  <Layout>
+  <Layout home={false}>
    <h1>Write a post </h1>
 
    <form onSubmit={handleSumbit} className="p-4">
@@ -71,7 +71,6 @@ export default function Write() {
     </div>
     <div className="border-2 border-slate-300 w-2/4 p-2 rounded-md mt-4">
      <textarea
-      type="text"
       name="content"
       placeholder="content"
       required
@@ -88,7 +87,11 @@ export default function Write() {
    </form>
 
    {showLink && (
-    <Link href={`../posts/${idRef.current.value}`} replace scroll={false}>
+    <Link
+     href={`http://localhost/posts/${idRef.current?.value}`}
+     replace
+     scroll={false}
+    >
      Go To Created Post
     </Link>
    )}

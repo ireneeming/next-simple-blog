@@ -1,5 +1,5 @@
 // // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-// import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from "next";
 // import { allPostsData } from "../../../lib/posts";
 
 // export default function handler(
@@ -12,7 +12,10 @@
 
 import { getSortedPostsData } from "../../../../lib/posts";
 
-export default function handler(req, res) {
+export default function handler(
+ req: NextApiRequest,
+ res: NextApiResponse<any>
+) {
  const allPostsData = getSortedPostsData();
  res.status(200).json({ allPostsData });
 }

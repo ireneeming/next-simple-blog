@@ -1,7 +1,11 @@
+import type { NextApiRequest, NextApiResponse } from "next";
 import { createPost } from "../../../../lib/posts";
 import { format } from "date-fns";
 
-export default async function handler(req, res) {
+export default async function handler(
+ req: NextApiRequest,
+ res: NextApiResponse<any>
+) {
  const { id, title, content } = req.body;
 
  try {
