@@ -9,6 +9,7 @@
   "lint": "next lint"
  },
  "dependencies": {
+  "@yarnpkg/pnpify": "^4.1.0",
   "data-fns": "^1.1.0",
   "date-fns": "^3.6.0",
   "gray-matter": "^4.0.3",

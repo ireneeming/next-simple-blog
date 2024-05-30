@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/Layout.tsx";
+import Layout, { siteTitle } from "../components/Layout";
 import Link from "next/link";
-import Date from "../components/date";
+import Date from "../components/Date";
 import { getSortedPostsData } from "../../lib/posts";
 import utilStyles from "../styles/utils.module.css";
 
@@ -51,9 +51,7 @@ export default function Home({ allPostsData }) {
       <li className="text-lg mb-4" key={id}>
        <Link href={`/posts/${id}`}>{title}</Link>
        <br />
-       <small className="text-sm text-slate-400">
-        <Date dateString={date} />
-       </small>
+       <small className="text-sm text-slate-400">{date}</small>
       </li>
      ))}
     </ul>
